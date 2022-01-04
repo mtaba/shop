@@ -1,9 +1,11 @@
 import Directory from '../../components/directory/directory.component.jsx'
 import './homepage.styles.scss'
-const Homepage = () => {
+
+
+export default function Homepage(props) {
+
     return <div className="homepage">
         <Directory />
     </div>
 }
 
-export default Homepage;
