@@ -5,7 +5,7 @@ import Homepage from './pages/homepage/homepage.component.jsx';
 import Shop from './components/shop/shop.component';
 import Header from './components/header/header.component.jsx'
 import SignInAndSignUp from './pages/sign-in-sign-up/sign-in-sign-up.component';
-import { auth } from './components/firebase/firebase.utils'
+import { auth, createUserProfileDocument } from './components/firebase/firebase.utils'
 
 class App extends Component {
   constructor() {
@@ -18,7 +18,8 @@ class App extends Component {
   unSubscribeFronAuth = null;
 
   componentDidMount() {
-    this.unSubscribeFronAuth = auth.onAuthStateChanged(user => {
+    this.unSubscribeFronAuth = auth.onAuthStateChanged(async user => {
+      createUserProfileDocument(user)
       this.setState({ currentUser: user })
       console.log(user)
     })

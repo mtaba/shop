@@ -1,4 +1,5 @@
-import { initializeApp } from 'firebase/app';
+import firebase, { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDoc } from 'firebase/firestore';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 
@@ -13,9 +14,24 @@ const config = {
   measurementId: "G-M9LV0DEZ58",
 };
 
+
 // Initialize Firebase
 const app = initializeApp(config);
 
+export const createUserProfileDocument = async (userAuth, aditionalData) => {
+  if (!userAuth)
+    return;
+  console.log("userAuth", userAuth);
+  // init service
+  const db = getFirestore();
+  // collection ref
+  const colRef = collection(db, "users");
+
+  await getDoc(colRef)
+    .then(snapshot => console.log(snapshot.docs))
+    .catch()
+}
+
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
-export const signInWithGoogle = ()=> signInWithPopup(auth, provider)
+export const signInWithGoogle = () => signInWithPopup(auth, provider)

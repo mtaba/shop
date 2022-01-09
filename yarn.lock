@@ -1194,6 +1194,14 @@
     "selenium-webdriver" "4.0.0-rc-1"
     "tslib" "^2.1.0"
 
+"@firebase/component@0.5.10":
+  "integrity" "sha512-mzUpg6rsBbdQJvAdu1rNWabU3O7qdd+B+/ubE1b+pTbBKfw5ySRpRRE6sKcZ/oQuwLh0HHB6FRJHcylmI7jDzA=="
+  "resolved" "https://registry.npmjs.org/@firebase/component/-/component-0.5.10.tgz"
+  "version" "0.5.10"
+  dependencies:
+    "@firebase/util" "1.4.3"
+    "tslib" "^2.1.0"
+
 "@firebase/component@0.5.9":
   "integrity" "sha512-oLCY3x9WbM5rn06qmUvbtJuPj4dIw/C9T4Th52IiHF5tiCRC5k6YthvhfUVcTwfoUhK0fOgtwuKJKA/LpCPjgA=="
   "resolved" "https://registry.npmjs.org/@firebase/component/-/component-0.5.9.tgz"
@@ -1249,6 +1257,20 @@
   "integrity" "sha512-I6c2m1zUhZ5SH0cWPmINabDyH5w0PPFHk2UHsjBpKdZllzJZ2TwTkXbDtpHUZNmnc/zAa0WNMNMvcvbb/xJLKA=="
   "resolved" "https://registry.npmjs.org/@firebase/firestore-types/-/firestore-types-2.5.0.tgz"
   "version" "2.5.0"
+
+"@firebase/firestore@^3.4.2":
+  "integrity" "sha512-i9tzocEnMagFEB9MLilhmNlOzG8qz9OMjMF85MGV6kMh2jxHRXGUlcDzjPOBthmlBoGKPHkB/3ZCZvxMsatDSw=="
+  "resolved" "https://registry.npmjs.org/@firebase/firestore/-/firestore-3.4.2.tgz"
+  "version" "3.4.2"
+  dependencies:
+    "@firebase/component" "0.5.10"
+    "@firebase/logger" "0.3.2"
+    "@firebase/util" "1.4.3"
+    "@firebase/webchannel-wrapper" "0.6.1"
+    "@grpc/grpc-js" "^1.3.2"
+    "@grpc/proto-loader" "^0.6.0"
+    "node-fetch" "2.6.5"
+    "tslib" "^2.1.0"
 
 "@firebase/firestore@3.4.1":
   "integrity" "sha512-KSXuaiavHUqk3+0qRe4U8QZ1vfpOc4PuesohLcjA824HexBzXd+6NoUmBs/F9pyS9Ka1rJeECXzXgpk0pInSBw=="
@@ -1432,6 +1454,13 @@
   "integrity" "sha512-JMiUo+9QE9lMBvEtBjqsOFdmJgObFvi7OL1A0uFGwTmlCI1ZeNPOEBrwXkgTOelVCdiMO15mAebtEyxFuQ6FsA=="
   "resolved" "https://registry.npmjs.org/@firebase/util/-/util-1.4.2.tgz"
   "version" "1.4.2"
+  dependencies:
+    "tslib" "^2.1.0"
+
+"@firebase/util@1.4.3":
+  "integrity" "sha512-gQJl6r0a+MElLQEyU8Dx0kkC2coPj67f/zKZrGR7z7WpLgVanhaCUqEsptwpwoxi9RMFIaebleG+C9xxoARq+Q=="
+  "resolved" "https://registry.npmjs.org/@firebase/util/-/util-1.4.3.tgz"
+  "version" "1.4.3"
   dependencies:
     "tslib" "^2.1.0"
 
