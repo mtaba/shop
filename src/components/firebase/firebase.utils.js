@@ -1,5 +1,5 @@
-import firebase, { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDoc } from 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, doc, getDoc, setDoc } from 'firebase/firestore';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 
@@ -17,19 +17,31 @@ const config = {
 
 // Initialize Firebase
 const app = initializeApp(config);
+const db = getFirestore(app)
+
 
 export const createUserProfileDocument = async (userAuth, aditionalData) => {
   if (!userAuth)
     return;
-  console.log("userAuth", userAuth);
-  // init service
-  const db = getFirestore();
-  // collection ref
-  const colRef = collection(db, "users");
+  const userRef = doc(db, "users", userAuth.uid);
+  const userSnap = await getDoc(userRef);
 
-  await getDoc(colRef)
-    .then(snapshot => console.log(snapshot.docs))
-    .catch()
+  if (!userSnap.exists) {
+    const { displayName, email } = userAuth;
+    const createDate = Date.now();
+    try {
+      await setDoc(doc(userRef, userAuth.uid), {
+        displayName,
+        email,
+        createDate,
+        ...aditionalData
+      })
+    }
+    catch (error) {
+      console.log('errot getting doc', error)
+    }
+  }  // end if
+  return userRef;
 }
 
 export const auth = getAuth(app);

@@ -15,18 +15,21 @@ class App extends Component {
 
     }
   }
-  unSubscribeFronAuth = null;
+  unsubscribefromauth = null;
 
   componentDidMount() {
-    this.unSubscribeFronAuth = auth.onAuthStateChanged(async user => {
-      createUserProfileDocument(user)
-      this.setState({ currentUser: user })
-      console.log(user)
+    console.log("enter component did mount")
+    this.unsubscribefromauth = auth.onAuthStateChanged(async user => {
+      // console.log("befor ")
+      const userRef = await createUserProfileDocument(user);
+      // console.lconsole.log("enter component did mount")og("enter component did mount")
+      // this.setState({ currentUser: user })
+      console.log(userRef)
     })
   }
 
   componentWillUnmount() {
-    this.unSubscribeFronAuth();
+    this.unsubscribefromauth();
   }
 
   render() {
