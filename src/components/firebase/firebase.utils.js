@@ -21,16 +21,19 @@ const db = getFirestore(app)
 
 
 export const createUserProfileDocument = async (userAuth, aditionalData) => {
+
   if (!userAuth)
     return;
+  
   const userRef = doc(db, "users", userAuth.uid);
   const userSnap = await getDoc(userRef);
 
-  if (!userSnap.exists) {
+  if (!userSnap.exists()) {
     const { displayName, email } = userAuth;
     const createDate = Date.now();
+    const usersColl = collection(db, "users");
     try {
-      await setDoc(doc(userRef, userAuth.uid), {
+      await setDoc(doc(usersColl, userAuth.uid ), {
         displayName,
         email,
         createDate,
@@ -38,7 +41,7 @@ export const createUserProfileDocument = async (userAuth, aditionalData) => {
       })
     }
     catch (error) {
-      console.log('errot getting doc', error)
+      console.log('error getting doc createuserProfile', error)
     }
   }  // end if
   return userRef;
@@ -46,4 +49,5 @@ export const createUserProfileDocument = async (userAuth, aditionalData) => {
 
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
+//provider.setCustomParameters({ prompt: 'select_account' });
 export const signInWithGoogle = () => signInWithPopup(auth, provider)

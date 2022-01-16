@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router';
+import { onSnapshot } from "firebase/firestore";
+
 import './App.css';
 import Homepage from './pages/homepage/homepage.component.jsx';
 import Shop from './components/shop/shop.component';
@@ -18,13 +20,22 @@ class App extends Component {
   unsubscribefromauth = null;
 
   componentDidMount() {
-    console.log("enter component did mount")
-    this.unsubscribefromauth = auth.onAuthStateChanged(async user => {
-      // console.log("befor ")
-      const userRef = await createUserProfileDocument(user);
-      // console.lconsole.log("enter component did mount")og("enter component did mount")
-      // this.setState({ currentUser: user })
-      console.log(userRef)
+    this.unsubscribefromauth = auth.onAuthStateChanged(async userAuth => {
+      if(userAuth){
+        const userRef = await createUserProfileDocument(userAuth);
+         onSnapshot(userRef , snapShot =>{
+           this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          });
+         })
+         
+      }
+      else{
+        this.setState({ currentUser: userAuth });
+      }
     })
   }
 
