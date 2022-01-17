@@ -43,6 +43,7 @@ class SingUp extends Component {
     catch(error) {
             const errorCode = error.code;
             const errorMessage = error.message;
+            console.log(errorCode)
             // auth/email-already-in-use 
             // i should to handle error if user is exist in firebase
           };
