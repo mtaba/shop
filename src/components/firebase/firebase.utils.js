@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, doc, getDoc, setDoc } from 'firebase/firestore';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, signInWithPopup, GoogleAuthProvider , createUserWithEmailAndPassword} from 'firebase/auth';
 
 
 const config = {
@@ -30,6 +30,7 @@ export const createUserProfileDocument = async (userAuth, aditionalData) => {
 
   if (!userSnap.exists()) {
     const { displayName, email } = userAuth;
+    console.log("displayName in utils",displayName)
     const createDate = Date.now();
     const usersColl = collection(db, "users");
     try {
