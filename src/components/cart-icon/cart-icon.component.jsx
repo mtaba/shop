@@ -15,5 +15,7 @@ import './cart-icon.styles.scss'
         )
     }
 }
+const mapStateToProps = (hidden)=>({
 
+})
 export default connect()(CartIcon)
