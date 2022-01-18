@@ -4,10 +4,13 @@ import {connect} from 'react-redux';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg'
 import { auth } from '../firebase/firebase.utils';
+import { signOut } from "firebase/auth";
 import './header.styles.scss'
 
 
-const Header = ({ currentUser }) => {
+function Header ({ currentUser }){
+   
+console.log("currentUser",currentUser)
     return (
         <div className="header">
             <Link to="/" className="logo-container">
@@ -19,10 +22,10 @@ const Header = ({ currentUser }) => {
                 <Link to="/contact" className="option">CONTACT</Link>
                 {
                     currentUser ?
-                        <div onClick={() => { auth.signOut() }} className="option">
+                        <div onClick={()=>signOut(auth)} className="option">
                             SING OUT
-                        </div> :
-                        <Link to="/signin" className="option">SIGN IN</Link>
+                        </div> :(
+                        <Link to="/signin" className="option">SIGN IN</Link>)
                 }
 
 
