@@ -10,7 +10,7 @@ import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import './header.styles.scss'
 
 
-function Header ({ currentUser }){
+function Header ({ currentUser, hidden }){
    
 console.log("currentUser",currentUser)
     return (
@@ -32,12 +32,15 @@ console.log("currentUser",currentUser)
 
                 <CartIcon />
             </div>
-                <CartDropdown />
+              {
+                  !hidden ?  <CartDropdown /> : null
+              }
         </div>
     )
 }
 
-const mapStateToProps = ({user})=>({
-    currentUser : user.currentUser
+const mapStateToProps = ({user, cart})=>({
+    currentUser : user.currentUser,
+    hidden: cart.hidden
 })
 export default connect(mapStateToProps)(Header);
