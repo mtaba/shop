@@ -8,18 +8,20 @@ import './collection-item.styles.scss'
 class CollectionItem extends Component {
   
     handleAddToCart=()=>{
-        const {addItem, name, price, imageUrl} =  this.props;
-        
-        let item = {
-            name: name,
-            price : price,
-            imageUrl: imageUrl
+        const {addItem, item} =  this.props;
+        console.log("object")
+        let newItem = {
+            id: item.id,
+            name: item.name,
+            price : item.price,
+            imageUrl: item.imageUrl
         }
-        addItem(item)
+        console.log("item",newItem)
+        addItem(newItem)
     }
 
     render(){
-        const {name, price, imageUrl} = this.props
+        const {name, price, imageUrl} = this.props.item
         return (
             <div className="collection-item">
                 <div className="image" style={{ backgroundImage: `url(${imageUrl})` }} />

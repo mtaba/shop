@@ -3,7 +3,6 @@ import './collectionpreview.styles.scss'
 const CollectionPreview = ({ ...rest }) => {
     const { title, items } = rest;
     return (
-
         <div className="collection-preview">
             {<h1 className="title">{title.toUpperCase()}</h1>}
             <div className="preview">
@@ -11,8 +10,8 @@ const CollectionPreview = ({ ...rest }) => {
 
                     items
                         .filter((item, index) => index < 4)
-                        .map(({ id, ...otherProps }) => (
-                            <CollectionItem key={id} {...otherProps} />
+                        .map((item) => (
+                            <CollectionItem key={item.id} item={item} />
                         ))
                 }
             </div>
