@@ -30,7 +30,6 @@ export const createUserProfileDocument = async (userAuth, aditionalData) => {
 
   if (!userSnap.exists()) {
     const { displayName, email } = userAuth;
-    console.log("displayName in utils",displayName)
     const createDate = Date.now();
     const usersColl = collection(db, "users");
     try {

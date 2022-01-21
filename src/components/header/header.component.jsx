@@ -12,7 +12,6 @@ import './header.styles.scss'
 
 function Header ({ currentUser, hidden }){
    
-console.log("currentUser",currentUser)
     return (
         <div className="header">
             <Link to="/" className="logo-container">
