@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { connect} from 'react-redux'
 import CustomButton from '../custom-button/custom-button.component';
-
+import { connect} from 'react-redux';
+import CartItem from '../cart-item/cart-item.component';
 import './cart-dropdown.styles.scss';
 
 class CartDropdown extends Component {
@@ -11,11 +11,7 @@ class CartDropdown extends Component {
             <div className="cart-dropdown">
                 <div className="cart-items" >
                 {
-                    this.props.cartItems.map(item=>{
-                        return <div className="cart-item">
-                          <img className="item-image" src={item.imageUrl} alt={item.name} />  {item.name} - {item.price * item.quantity}
-                            </div>
-                    })
+                    this.props.cartItems.map(item => ( <CartItem key={item.id} item={item}  />))
                 }
                 </div>
 
