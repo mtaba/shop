@@ -13,4 +13,21 @@
     )
 }
 
+export const increaseItemQuantity=(cartItems,item)=>{
+   return  cartItems.map(cartItem=> (
+        cartItem.id === item.id  
+        ? { ...cartItem, quantity: cartItem.quantity+1 }
+        : cartItem
+        ) 
+   )
+}
+
+export const decreaseItemQuantity=(cartItems,item)=>{
+   return  cartItems.map(cartItem=> (
+        cartItem.id === item.id  
+        ? { ...cartItem, quantity: cartItem.quantity-1 }
+        : cartItem
+        ) 
+   )
+}
 export default addItemToCart;

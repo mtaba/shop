@@ -24,6 +24,12 @@
   
     .quantity {
       padding-left: 20px;
+      display: flex;
+      .decrease, .increase{
+       cursor: pointer;
+       padding: 0 3px;
+      }
+      
     }
   
     .remove-button {
