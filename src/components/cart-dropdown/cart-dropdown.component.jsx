@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import { createStructuredSelector } from 'reselect'
 import { withRouter }  from 'react-router-dom'
 import CustomButton from '../custom-button/custom-button.component';
