@@ -14,4 +14,3 @@ createSelector(
 
 ))
 
-export default selectShopCollections;
