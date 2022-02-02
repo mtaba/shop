@@ -2,7 +2,6 @@ import React from "react";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { Link } from "react-router-dom";
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { ReactComponent as Logo } from "../../assets/crown.svg";

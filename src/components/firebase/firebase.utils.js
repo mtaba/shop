@@ -47,6 +47,11 @@ export const createUserProfileDocument = async (userAuth, aditionalData) => {
   return userRef;
 }
 
+export const addCollectionAndDocuments = (collectionKey, objectsToAdd)=>{
+  const collectionRef = db.collection(collectionKey);
+  console.log(collectionRef);
+}
+
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
 //provider.setCustomParameters({ prompt: 'select_account' });
