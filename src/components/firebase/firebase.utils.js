@@ -75,7 +75,11 @@ export const convertCollectionsSnapshotToMap = (snapshot) => {
     collections.push(tempObject);
     
   });
-  return  collections;
+  // return  collections;
+  return collections.reduce((accumulator,collection)=>{
+    accumulator[collection.title.toLowerCase()] = collection
+    return accumulator
+  }, {})
 }
 
 export const auth = getAuth(app);
