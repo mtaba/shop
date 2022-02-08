@@ -1,13 +1,13 @@
-import SHOP_DATA from './shop.data'
 import ShopActionTypes from './shop.types'
 const INITAL_STATE = {
-    collections : ''
+    collections : null
 }
 
 const ShopReducer =(state=INITAL_STATE, action)=>{
-    console.log("i am action",action.type)
+    console.log("i am actio",action.type)
     switch (action.type) {
         case ShopActionTypes.UPDATE_COLLECTIONS:
+        console.log("action.payload", action.payload)
         return ({
             ...state,
             collections : action.payload
