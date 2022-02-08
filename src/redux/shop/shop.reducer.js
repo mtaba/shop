@@ -4,7 +4,6 @@ const INITAL_STATE = {
 }
 
 const ShopReducer =(state=INITAL_STATE, action)=>{
-    console.log("i am actio",action.type)
     switch (action.type) {
         case ShopActionTypes.UPDATE_COLLECTIONS:
         console.log("action.payload", action.payload)

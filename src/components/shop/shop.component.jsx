@@ -56,7 +56,7 @@ class Shop extends React.Component{
         )
     }
 }
-// const Shop =({ match })=>
+
 const mapDispatchToProps=(dispatch)=>({
     _updateCollections : collectionsMap=>dispatch(updateCollections(collectionsMap))
 })

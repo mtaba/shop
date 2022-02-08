@@ -8,8 +8,6 @@ import  CollectionItem  from '../../components/collection-item/collection-item.c
 import './collection.styles.scss'
 
 const CollectionPage = (props)=>{
-    console.log("porps props", props)
-    console.log("porps match", props.match)
     const { title , items } = props.collection;
      return (
              <div className="collection-page">
@@ -17,7 +15,7 @@ const CollectionPage = (props)=>{
                  <div className="items">
                  {
                      items.map(item=>
-                        <CollectionItem item = {item} />
+                        <CollectionItem key={item.id} item = {item} />
                         )
                  }
                  </div>
